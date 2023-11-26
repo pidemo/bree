@@ -117,6 +117,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     .finally(() => {
       writeJobs();
     });
+setLocations();    
 });
 // Triggered in finally above
 function writeJobs() {
@@ -161,7 +162,6 @@ function writeJobs() {
         root.classList.add("visible");
       });
   });
-  setLocations();
 }
 
 function setLocations() {
