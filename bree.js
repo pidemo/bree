@@ -144,12 +144,14 @@ const ghSlug = "webflow";
 const departmentIds = [];
 const root = document.getElementById("root");
 const loading = document.getElementById("loading");
-const jobFilter = document.getElementById("filter");
+const departmentFilter = document.getElementById("filter");
+// give second filter ID of locations
+const locationFilter = document.getElementById("locations");
 const errorWrapper = document.getElementById("errwrapper");
 const errorText = document.getElementById("errtext");
 
 // Filtering function for select element
-jobFilter.onchange = function () {
+departmentFilter.onchange = function () {
   let selectedSection = this.value;
   let filtered = document.querySelectorAll(".department-section");
   if (selectedSection == "all") {
@@ -165,6 +167,31 @@ jobFilter.onchange = function () {
     document.getElementById(selectedSection).style.display = "block";
   }
 };
+
+
+
+
+
+
+// Filtering function for select element
+locationFilter.onchange = function () {
+    let selectedLocation = this.value;
+  
+    let allJobs = document.querySelectorAll(".job-listing-2");
+  
+    // loop through each item of allJobs, and get the string of locations for each item (has a class of .job-location-2)
+    allJobs.forEach(function(job) {
+      let jobLocation = job.querySelector(".job-location-2").textContent;
+  
+      // compare the string of locations for each job, and if it does not contain the selectedLocation, then set its display property to none.
+      if (jobLocation.indexOf(selectedLocation) === -1) {
+        job.style.display = "none";
+      } else {
+        job.style.display = "flex";
+      }
+    });
+};
+
 
 // Triggers when the DOM is ready
 window.addEventListener("DOMContentLoaded", (event) => {
@@ -190,7 +217,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
           let option = document.createElement("option");
           option.text = department.name;
           option.value = department.id;
-          jobFilter.add(option);
+          departmentFilter.add(option);
         } else {
           null;
         }
