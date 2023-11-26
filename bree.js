@@ -116,6 +116,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     })
     .finally(() => {
       writeJobs();
+      setLocations();
     });
 });
 // Triggered in finally above
@@ -163,35 +164,31 @@ function writeJobs() {
   });
 }
 
+function setLocations() {
+    // locations test
 
-// locations test
+    // Get all job listing elements
+    const jobListings = document.querySelectorAll('.job-listing-2');
+    let allCities = [];
 
-// Get all job listing elements
-const jobListings = document.querySelectorAll('.job-listing-2');
+    // Loop through each job listing
+    jobListings.forEach((jobListing) => {
+    // Find the job location element within the current job listing
+    const jobLocationElement = jobListing.querySelector('.job-location-2');
+    // Check if the job location element exists
+    if (jobLocationElement) {
+        // Get the text content of the job location element
+        const cityString = jobLocationElement.textContent;
+        // Split the city string into an array using commas as separators
+        const citiesArray = cityString.split(',').map(city => city.trim());
+        // Merge the current cities array with the overall array
+        allCities = allCities.concat(citiesArray);
+    }
+    });
 
-// Initialize an empty array to store all cities
-let allCities = [];
-
-// Loop through each job listing
-jobListings.forEach((jobListing) => {
-  // Find the job location element within the current job listing
-  const jobLocationElement = jobListing.querySelector('.job-location-2');
-
-  // Check if the job location element exists
-  if (jobLocationElement) {
-    // Get the text content of the job location element
-    const cityString = jobLocationElement.textContent;
-
-    // Split the city string into an array using commas as separators
-    const citiesArray = cityString.split(',').map(city => city.trim());
-
-    // Merge the current cities array with the overall array
-    allCities = allCities.concat(citiesArray);
-  }
-});
-
-// Remove duplicates from the merged array
-const uniqueCities = Array.from(new Set(allCities));
-
-// Log the result
-console.log('All Cities:', uniqueCities);
+    // Remove duplicates from the merged array
+    const uniqueCities = Array.from(new Set(allCities));
+    // Log the result
+    console.log('All Cities:', uniqueCities);
+    // end of locations test
+}
