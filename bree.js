@@ -65,6 +65,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     .then((data) => {
       console.log(data);
       data.departments.forEach((department) => {
+        console.log(department);
         if (department.jobs.length !== 0) {
           departmentIds.push(department.id);
           let sectionWrapper = document.getElementById("section");
