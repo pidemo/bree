@@ -12,6 +12,8 @@ const errorText = document.getElementById("errtext");
 
 // Filtering function for select department
 departmentFilter.onchange = function () {
+  console.log("Filter changed");
+
   let selectedDepartment = this.value;
   let filteredDpt = document.querySelectorAll(".department-section");
   
@@ -59,6 +61,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   fetch("https://boards-api.greenhouse.io/v1/boards/soundcloud71/departments/")
     .then(handleError)
     .then((data) => {
+      console.log(data);
       data.departments.forEach((department) => {
         if (department.jobs.length !== 0) {
           departmentIds.push(department.id);
