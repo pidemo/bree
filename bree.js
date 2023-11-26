@@ -6,11 +6,11 @@ const loading = document.getElementById("loading");
 // this should be targeting the <select> element used for filtering department
 const departmentFilter = document.getElementById("department-filter");
 // this should be targeting the <select> element used for filtering locations
-const locationsFilter = document.getElementById("locations-filter");
+// const locationsFilter = document.getElementById("locations-filter");
 const errorWrapper = document.getElementById("errwrapper");
 const errorText = document.getElementById("errtext");
 
-console.log(root, loading, departmentFilter, locationsFilter, errorWrapper, errorText);
+console.log(root, loading, departmentFilter, errorWrapper, errorText);
 
 // Filtering function for select department
 departmentFilter.onchange = function () {
