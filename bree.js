@@ -1,19 +1,16 @@
 // Auto populate locations select options
 
-// Reset filter when all locations selected
-
 
 // Global variables defined here
 const departmentIds = [];
 const root = document.getElementById("root");
 const loading = document.getElementById("loading");
 const departmentFilter = document.getElementById("filter");
-// give second filter ID of locations
 const locationFilter = document.getElementById("locations");
 const errorWrapper = document.getElementById("errwrapper");
 const errorText = document.getElementById("errtext");
 
-// Filtering function for select element
+// Filtering function for select department
 departmentFilter.onchange = function () {
   let selectedSection = this.value;
   let filtered = document.querySelectorAll(".department-section");
@@ -31,7 +28,7 @@ departmentFilter.onchange = function () {
   }
 };
 
-// Filtering function for select element
+// Filtering function for select location
 locationFilter.onchange = function () {
     let selectedLocation = this.value;
   
@@ -165,3 +162,36 @@ function writeJobs() {
       });
   });
 }
+
+
+// locations test
+
+// Get all job listing elements
+const jobListings = document.querySelectorAll('.job-listing-2');
+
+// Initialize an empty array to store all cities
+let allCities = [];
+
+// Loop through each job listing
+jobListings.forEach((jobListing) => {
+  // Find the job location element within the current job listing
+  const jobLocationElement = jobListing.querySelector('.job-location-2');
+
+  // Check if the job location element exists
+  if (jobLocationElement) {
+    // Get the text content of the job location element
+    const cityString = jobLocationElement.textContent;
+
+    // Split the city string into an array using commas as separators
+    const citiesArray = cityString.split(',').map(city => city.trim());
+
+    // Merge the current cities array with the overall array
+    allCities = allCities.concat(citiesArray);
+  }
+});
+
+// Remove duplicates from the merged array
+const uniqueCities = Array.from(new Set(allCities));
+
+// Log the result
+console.log('All Cities:', uniqueCities);
