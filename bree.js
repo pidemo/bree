@@ -187,8 +187,13 @@ function setLocations() {
     });
 
     // Remove duplicates from the merged array
-    const uniqueCities = Array.from(new Set(allCities));
+    const uniqueLocations = Array.from(new Set(allCities));
     // Log the result
-    console.log('All Cities:', uniqueCities);
-    // end of locations test
+    console.log(uniqueLocations);
+    uniqueLocations.forEach((location) => {
+        let option = document.createElement("option");
+        option.text = location;
+        option.value = location;
+        locationFilter.add(option);
+    });
 }
