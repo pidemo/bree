@@ -153,9 +153,11 @@ function writeJobs() {
           let cityString = job.location.name;
           // Split the city string into an array using commas as separators
           let citiesArray = cityString.split(',').map(city => city.trim());
-          console.log(cityString, citiesArray);
+          //console.log(cityString, citiesArray);
           // Merge the current cities array with the overall array
+          console.log(`Before :${allCities}`);
           allCities = allCities.concat(citiesArray);
+          console.log(`After :${allCities}`);
         });
       })
       .catch(function writeError(err) {
