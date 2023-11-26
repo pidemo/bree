@@ -1,3 +1,8 @@
+// Auto populate locations select options
+
+// Reset filter when all locations selected
+
+
 // Global variables defined here
 const departmentIds = [];
 const root = document.getElementById("root");
@@ -31,17 +36,21 @@ locationFilter.onchange = function () {
     let selectedLocation = this.value;
   
     let allJobs = document.querySelectorAll(".job-listing-2");
-  
-    // loop through each item of allJobs, and get the string of locations for each item (has a class of .job-location-2)
-    allJobs.forEach(function(job) {
-      let jobLocation = job.querySelector(".job-location-2").textContent;
-  
-      // compare the string of locations for each job, and if it does not contain the selectedLocation, then set its display property to none.
-      if (jobLocation.indexOf(selectedLocation) === -1) {
-        job.style.display = "none";
-      } else {
+    if (selectedLocation == "all") {
+        allJobs.forEach((job) => {
         job.style.display = "flex";
-      }
+        });
+    } else {
+        // loop through each item of allJobs, and get the string of locations for each item (has a class of .job-location-2)
+        allJobs.forEach(function(job) {
+        let jobLocation = job.querySelector(".job-location-2").textContent;
+    
+        // compare the string of locations for each job, and if it does not contain the selectedLocation, then set its display property to none.
+        if (jobLocation.indexOf(selectedLocation) === -1) {
+            job.style.display = "none";
+        } else {
+            job.style.display = "flex";
+        }
     });
 
     // Get all elements with the class .department-section
