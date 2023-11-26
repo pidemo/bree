@@ -56,7 +56,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
       return response.json();
     }
   };
-  fetch("https://boards-api.greenhouse.io/v1/boards/soundcloud/departments/")
+  fetch("https://boards-api.greenhouse.io/v1/boards/soundcloud71/departments/")
     .then(handleError)
     .then((data) => {
       data.departments.forEach((department) => {
@@ -92,7 +92,7 @@ function writeJobs() {
         return response.json();
       }
     };
-    fetch("https://boards-api.greenhouse.io/v1/boards/soundcloud/departments/" + departmentId)
+    fetch("https://boards-api.greenhouse.io/v1/boards/soundcloud71/departments/" + departmentId)
       .then(handleError)
       .then((data) => {
         let parent = document.getElementById(data.id);
