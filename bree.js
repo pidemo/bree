@@ -156,12 +156,12 @@ function writeJobs() {
         console.error(err);
       })
       .finally(() => {
-        setLocations();
         loading.classList.add("invisible");
         loading.remove();
         root.classList.add("visible");
       });
   });
+  setLocations();
 }
 
 function setLocations() {
