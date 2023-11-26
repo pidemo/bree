@@ -6,6 +6,7 @@ const departmentFilter = document.getElementById("filter");
 const locationFilter = document.getElementById("locations");
 const errorWrapper = document.getElementById("errwrapper");
 const errorText = document.getElementById("errtext");
+let allCities = [];
 
 // Filtering function for select department
 departmentFilter.onchange = function () {
@@ -147,45 +148,66 @@ function writeJobs() {
           let jobLocation = ghListing.getElementsByClassName("job-location-2")[0];
           jobLocation.innerText = job.location.name;
           parentContainer.appendChild(ghListing);
+          //push locations filter
+          // Get the text content of the job location element
+          let cityString = job.location.name;
+          // Split the city string into an array using commas as separators
+          let citiesArray = cityString.split(',').map(city => city.trim());
+          // Merge the current cities array with the overall array
+          allCities = allCities.concat(citiesArray);
         });
       })
       .catch(function writeError(err) {
         console.error(err);
       })
-      .finally(() => {        
+      .finally(() => {   
+        // Remove duplicates from the merged array
+        let uniqueLocations = Array.from(new Set(allCities));
+        // Log the result
+        console.log(uniqueLocations);     
         loading.classList.add("invisible");
         loading.remove();
         root.classList.add("visible");
       });
   });
-  console.log("Finally");
-    // Get all job listing elements
-    const jobListings = document.querySelectorAll('.job-listing-2');
-    let allCities = [];
-
-    // Loop through each job listing
-    jobListings.forEach((jobListing) => {
-    // Find the job location element within the current job listing
-    const jobLocationElement = jobListing.querySelector('.job-location-2');
-    // Check if the job location element exists
-    if (jobLocationElement) {
-        // Get the text content of the job location element
-        const cityString = jobLocationElement.textContent;
-        // Split the city string into an array using commas as separators
-        const citiesArray = cityString.split(',').map(city => city.trim());
-        // Merge the current cities array with the overall array
-        allCities = allCities.concat(citiesArray);
-    }
-    });
-
-    // Remove duplicates from the merged array
-    const uniqueLocations = Array.from(new Set(allCities));
-    // Log the result
-    console.log(uniqueLocations);
-    uniqueLocations.forEach((location) => {
-        let option = document.createElement("option");
-        option.text = location;
-        option.value = location;
-        locationFilter.add(option);
-    });
+    
 }
+
+
+/*
+
+Has been simplified now
+
+// Get all job listing elements
+const jobListings = document.querySelectorAll('.job-listing-2');
+
+
+// Loop through each job listing
+jobListings.forEach((jobListing) => {
+// Find the job location element within the current job listing
+const jobLocation = jobListing.querySelector('.job-location-2');
+// Check if the job location element exists
+if (jobLocation) {
+    // Get the text content of the job location element
+    const cityString = jobLocation.textContent;
+    // Split the city string into an array using commas as separators
+    const citiesArray = cityString.split(',').map(city => city.trim());
+    // Merge the current cities array with the overall array
+    allCities = allCities.concat(citiesArray);
+}
+});
+
+
+
+// Remove duplicates from the merged array
+let uniqueLocations = Array.from(new Set(allCities));
+// Log the result
+console.log(uniqueLocations);
+uniqueLocations.forEach((location) => {
+    let option = document.createElement("option");
+    option.text = location;
+    option.value = location;
+    locationFilter.add(option);
+});
+
+*/
