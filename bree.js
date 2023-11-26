@@ -196,9 +196,18 @@ locationFilter.onchange = function () {
 
     // Iterate over each .department-section
     parents.forEach((parent) => {
-        // Use querySelectorAll to select children with display: flex
-        const flexChildrenCount = parent.querySelectorAll(':scope > :not([style*="display:none"])').length;
+        // Use querySelectorAll to select children with the specified class
+        const jobListings = parent.querySelectorAll('.job-listing-2');
 
+        // Filter job listings with display: flex
+        const flexJobListings = Array.from(jobListings).filter((listing) => {
+        const computedStyle = window.getComputedStyle(listing);
+        return computedStyle.getPropertyValue('display') === 'flex';
+        });
+
+        // Count and log the number of job listings with display: flex
+        const flexChildrenCount = flexJobListings.length;
+        
         // Hide the parent if no flex children are found
         if (flexChildrenCount === 0) {
             parent.style.display = 'none';
@@ -209,6 +218,11 @@ locationFilter.onchange = function () {
     });
 
 };
+
+
+
+
+
 
 
 // Triggers when the DOM is ready
