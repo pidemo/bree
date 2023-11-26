@@ -231,10 +231,10 @@ function writeJobs() {
           let listing = document.getElementById("listing");
           let ghListing = listing.cloneNode(true);
           ghListing.id = job.id;
-          let jobTitle = ghListing.getElementsByClassName("job-title")[0];
+          let jobTitle = ghListing.getElementsByClassName("job-title-2")[0];
           jobTitle.innerText = job.title;
           jobTitle.setAttribute("href", job.absolute_url);
-          let jobLocation = ghListing.getElementsByClassName("job-location")[0];
+          let jobLocation = ghListing.getElementsByClassName("job-location-2")[0];
           jobLocation.innerText = job.location.name;
           parentContainer.appendChild(ghListing);
         });
