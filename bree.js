@@ -51,8 +51,8 @@ locationFilter.onchange = function () {
         } else {
             job.style.display = "flex";
         }
-    });
-
+        });
+    }
     // Get all elements with the class .department-section
     const parents = document.querySelectorAll('.department-section');
 
