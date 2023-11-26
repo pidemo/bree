@@ -63,7 +63,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   fetch("https://boards-api.greenhouse.io/v1/boards/soundcloud71/departments/")
     .then(handleError)
     .then((data) => {
-      console.log(data);
+      console.log("Fetched !");
       data.departments.forEach((department) => {
         console.log(department);
         if (department.jobs.length !== 0) {
