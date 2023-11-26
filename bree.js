@@ -190,6 +190,24 @@ locationFilter.onchange = function () {
         job.style.display = "flex";
       }
     });
+
+    // Get all elements with the class .department-section
+    const parents = document.querySelectorAll('.department-section');
+
+    // Iterate over each .department-section
+    parents.forEach((parent) => {
+        // Use querySelectorAll to select children with display: flex
+        const flexChildrenCount = parent.querySelectorAll(':scope > :not([style*="display:none"])').length;
+
+        // Hide the parent if no flex children are found
+        if (flexChildrenCount === 0) {
+            parent.style.display = 'none';
+        } else {
+            // Ensure the parent is visible if it was previously hidden
+            parent.style.display = 'block';
+        }
+    });
+
 };
 
 
