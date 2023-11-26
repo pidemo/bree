@@ -114,6 +114,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     })
     .finally(() => {
       writeJobs();
+      console.log(uniqueLocations);
     }); 
 });
 // Triggered in finally above
@@ -167,9 +168,7 @@ function writeJobs() {
         loading.remove();
         root.classList.add("visible");
       });
-  });
-   // Log the result
-   console.log(uniqueLocations);      
+  });      
 }
 
 
