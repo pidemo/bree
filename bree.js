@@ -116,7 +116,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
     })
     .finally(() => {
       writeJobs();
-      setLocations();
     });
 });
 // Triggered in finally above
@@ -157,6 +156,7 @@ function writeJobs() {
         console.error(err);
       })
       .finally(() => {
+        setLocations();
         loading.classList.add("invisible");
         loading.remove();
         root.classList.add("visible");
