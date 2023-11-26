@@ -222,7 +222,7 @@ function writeJobs() {
       .then(handleError)
       .then((data) => {
         let parent = document.getElementById(data.id);
-        let parentContainer = parent.getElementsByClassName("container")[0];
+        let parentContainer = parent.getElementsByClassName("container-2")[0];
         let sectionHeading = document.getElementById("dname");
         let sectionTitle = sectionHeading.cloneNode(true);
         sectionTitle.innerText = data.name;
