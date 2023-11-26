@@ -10,6 +10,8 @@ const locationsFilter = document.getElementById("locations-filter");
 const errorWrapper = document.getElementById("errwrapper");
 const errorText = document.getElementById("errtext");
 
+console.log(root, loading, departmentFilter, locationsFilter, errorWrapper, errorText);
+
 // Filtering function for select department
 departmentFilter.onchange = function () {
   console.log("Filter changed");
