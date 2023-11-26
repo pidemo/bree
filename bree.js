@@ -176,7 +176,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     }
   };
   fetch(
-    "https://boards-api.greenhouse.io/v1/boards/" + ghSlug + "/departments/"
+    "https://boards-api.greenhouse.io/v1/boards/soundcloud71/departments/"
   )
     .then(handleError)
     .then((data) => {
@@ -214,9 +214,7 @@ function writeJobs() {
       }
     };
     fetch(
-      "https://boards-api.greenhouse.io/v1/boards/" +
-        ghSlug +
-        "/departments/" +
+      "https://boards-api.greenhouse.io/v1/boards/soundcloud71/departments/" +
         departmentId
     )
       .then(handleError)
