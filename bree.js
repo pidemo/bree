@@ -153,27 +153,23 @@ function writeJobs() {
           let cityString = job.location.name;
           // Split the city string into an array using commas as separators
           let citiesArray = cityString.split(',').map(city => city.trim());
-          //console.log(cityString, citiesArray);
           // Merge the current cities array with the overall array
-          console.log(`Before :${allCities}`);
           allCities = allCities.concat(citiesArray);
-          console.log(`After :${allCities}`);
         });
       })
       .catch(function writeError(err) {
         console.error(err);
       })
       .finally(() => {   
-        // Remove duplicates from the merged array
-        let uniqueLocations = Array.from(new Set(allCities));
-        // Log the result
-        console.log(uniqueLocations);     
         loading.classList.add("invisible");
         loading.remove();
         root.classList.add("visible");
       });
   });
-    
+   // Remove duplicates from the merged array
+   let uniqueLocations = Array.from(new Set(allCities));
+   // Log the result
+   console.log(uniqueLocations);      
 }
 
 
