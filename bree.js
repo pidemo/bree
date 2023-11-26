@@ -112,7 +112,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
       console.error(err);
     })
     .finally(() => {
-        console.log("And now ?");
       writeJobs();
     }); 
 });
