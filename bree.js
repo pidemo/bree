@@ -155,6 +155,8 @@ function writeJobs() {
           let citiesArray = cityString.split(',').map(city => city.trim());
           // Merge the current cities array with the overall array
           allCities = allCities.concat(citiesArray);
+          // Remove duplicates from the merged array
+          let uniqueLocations = Array.from(new Set(allCities));
         });
       })
       .catch(function writeError(err) {
@@ -166,8 +168,6 @@ function writeJobs() {
         root.classList.add("visible");
       });
   });
-   // Remove duplicates from the merged array
-   let uniqueLocations = Array.from(new Set(allCities));
    // Log the result
    console.log(uniqueLocations);      
 }
