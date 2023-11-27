@@ -185,7 +185,8 @@ function writeJobs() {
           let citiesArray = cityString.split(',').map(city => city.trim());
           // Merge the current cities array with the overall array
           allCities = allCities.concat(citiesArray);
-          console.log(allCities.length, allCities);
+          const uniqueCities = Array.from(new Set(allCities));
+          console.log(uniqueCities.length, uniqueCities);
           // create option and add it to select
           citiesArray.forEach((location) => {
             let option = document.createElement("option");
