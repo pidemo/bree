@@ -110,11 +110,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
     })
     .finally(() => {
       writeJobs();
-      //const locationFilter = document.getElementById("yourSelectId");
+      const toDedouble = document.getElementById("locations");
+      console.log(toDedouble);
       const uniqueValues = new Set();
 
-      for (let i = 0; i < locationFilter.options.length; i++) {
-      const option = locationFilter.options[i];
+      for (let i = 0; i < toDedouble.options.length; i++) {
+      const option = toDedouble.options[i];
       if (!uniqueValues.has(option.value)) {
           uniqueValues.add(option.value);
           console.log("+1");
