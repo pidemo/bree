@@ -6,7 +6,7 @@ const departmentFilter = document.getElementById("filter");
 const locationFilter = document.getElementById("locations");
 const errorWrapper = document.getElementById("errwrapper");
 const errorText = document.getElementById("errtext");
-let allCities = [];
+let allCities = ["All Offices"];
 
 // Filtering function for select department
 departmentFilter.onchange = function () {
@@ -31,7 +31,7 @@ locationFilter.onchange = function () {
     let selectedLocation = this.value;
   
     let allJobs = document.querySelectorAll(".job-listing-2");
-    if (selectedLocation == "all") {
+    if (selectedLocation == "All Offices") {
         allJobs.forEach((job) => {
         job.style.display = "flex";
         });
