@@ -154,8 +154,10 @@ function writeJobs() {
           let cityString = job.location.name;
           // Split the city string into an array using commas as separators
           let citiesArray = cityString.split(',').map(city => city.trim());
+          console.log("citiesArray : " + citiesArray);
           // Merge the current cities array with the overall array
           allCities = allCities.concat(citiesArray);
+          console.log("allCities : " + allCities);
           //
           citiesArray.forEach((location) => {
             let option = document.createElement("option");
