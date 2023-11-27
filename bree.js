@@ -110,22 +110,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
     })
     .finally(() => {
         writeJobs();
-        /*let select = document.querySelector('#locations');
-        let values = Array.from(select.options).map(opt => opt.value);
-        let uniqueValues = Array.from(new Set(values));
-
-        // Empty the select
-        while (select.options.length > 0) {
-            select.remove(0);
-        }
-
-        // Add the unique options
-        uniqueValues.forEach(val => {
-            let option = document.createElement('option');
-            option.value = val;
-            option.text = val;
-            select.appendChild(option);
-        });*/
     }); 
 });
 // Triggered in finally above
