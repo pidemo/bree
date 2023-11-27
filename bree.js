@@ -156,6 +156,14 @@ function writeJobs() {
           let citiesArray = cityString.split(',').map(city => city.trim());
           // Merge the current cities array with the overall array
           allCities = allCities.concat(citiesArray);
+          //
+          citiesArray.forEach((location) => {
+            let option = document.createElement("option");
+            option.text = location;
+            option.value = location;
+            locationFilter.add(option);
+          });
+
         });
       })
       .catch(function writeError(err) {
