@@ -188,8 +188,8 @@ function writeJobs() {
           const uniqueCities = Array.from(new Set(allCities));
           
           // create option and add it to select
-          locationFilter.innerHTML = '';
-          allCities.forEach((location) => {
+          locationFilter.innerHTML = "";
+          uniqueCities.forEach((location) => {
             let option = document.createElement("option");
             option.text = location;
             option.value = location;
