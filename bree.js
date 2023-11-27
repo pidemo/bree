@@ -112,9 +112,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
       writeJobs();
       const selectElement = document.getElementById("locations");
       const optionValues = new Set();
+      console.log(selectElement);
 
       for (let i = 0; i < selectElement.options.length; i++) {
       const option = selectElement.options[i];
+      console.log(option);
       if (optionValues.has(option.value)) {
         // Remove duplicate option
         selectElement.remove(i);
