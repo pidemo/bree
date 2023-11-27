@@ -172,6 +172,7 @@ function writeJobs() {
         console.error(err);
       })
       .finally(() => {   
+        console.log("Final AllCities : " + allCities);
         loading.classList.add("invisible");
         loading.remove();
         root.classList.add("visible");
