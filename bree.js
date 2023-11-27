@@ -110,19 +110,17 @@ window.addEventListener("DOMContentLoaded", (event) => {
     })
     .finally(() => {
       writeJobs();
-      const toDedouble = document.getElementById("locations");
-      console.log(toDedouble);
-      const uniqueValues = new Set();
+      const selectElement = document.getElementById("locations");
+      const optionValues = new Set();
 
-      for (let i = 0; i < toDedouble.options.length; i++) {
-      const option = toDedouble.options[i];
-      if (!uniqueValues.has(option.value)) {
-          uniqueValues.add(option.value);
-          console.log("+1");
+      for (let i = 0; i < selectElement.options.length; i++) {
+      const option = selectElement.options[i];
+      if (optionValues.has(option.value)) {
+        // Remove duplicate option
+        selectElement.remove(i);
+        i--; // Decrement index to account for the removed option
       } else {
-          option.remove();
-          console.log("-1");
-          i--;
+        optionValues.add(option.value);
       }
       }
     }); 
