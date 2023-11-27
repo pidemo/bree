@@ -154,11 +154,9 @@ function writeJobs() {
           let cityString = job.location.name;
           // Split the city string into an array using commas as separators
           let citiesArray = cityString.split(',').map(city => city.trim());
-          console.log("citiesArray : " + citiesArray);
           // Merge the current cities array with the overall array
           allCities = allCities.concat(citiesArray);
-          console.log("allCities : " + allCities);
-          //
+          // create option and add it to select
           citiesArray.forEach((location) => {
             let option = document.createElement("option");
             option.text = location;
@@ -172,12 +170,13 @@ function writeJobs() {
         console.error(err);
       })
       .finally(() => {   
-        console.log("Final AllCities : " + allCities);
         loading.classList.add("invisible");
         loading.remove();
         root.classList.add("visible");
       });
+      console.log("Penultimate AllCities : " + allCities);
   });      
+  console.log("Final AllCities : " + allCities);
 }
 
 
