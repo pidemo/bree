@@ -110,7 +110,20 @@ window.addEventListener("DOMContentLoaded", (event) => {
     })
     .finally(() => {
       writeJobs();
-      console.log(allCities);
+      //const locationFilter = document.getElementById("yourSelectId");
+      const uniqueValues = new Set();
+
+      for (let i = 0; i < locationFilter.options.length; i++) {
+      const option = locationFilter.options[i];
+      if (!uniqueValues.has(option.value)) {
+          uniqueValues.add(option.value);
+          console.log("+1");
+      } else {
+          option.remove();
+          console.log("-1");
+          i--;
+      }
+      }
     }); 
 });
 // Triggered in finally above
@@ -169,18 +182,5 @@ function writeJobs() {
         loading.remove();
         root.classList.add("visible");
       });
-  });    
-    
-//const locationFilter = document.getElementById("yourSelectId");
-const uniqueValues = new Set();
-
-for (let i = 0; i < locationFilter.options.length; i++) {
-  const option = locationFilter.options[i];
-  if (!uniqueValues.has(option.value)) {
-    uniqueValues.add(option.value);
-  } else {
-    option.remove();
-    i--;
-  }
-}
+  });
 }
